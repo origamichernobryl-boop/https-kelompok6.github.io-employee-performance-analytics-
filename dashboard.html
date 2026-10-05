@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global Dashboard - Employee Performance Analytics</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>Employee Performance Analytics</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <nav class="site-nav" data-site-nav>
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="questionnaire.html">Questionnaire</a>
+        <a data-nav href="performance.html">My Performance</a>
+        <a data-nav href="dashboard.html">Dashboard</a>
+        <a data-nav href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" data-dashboard-page>
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Global Dashboard</p>
+          <h1>Participant Dataset Analytics</h1>
+        </div>
+        <p>The dashboard uses sample participant data and the latest local questionnaire result from this browser. It does not claim realtime multi-device synchronization.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card pad stat-card"><p class="stat-label">Total Participants</p><div class="stat-value" data-stat="participants">0</div></article>
+        <article class="card pad stat-card"><p class="stat-label">Average Attendance</p><div class="stat-value"><span data-stat="attendance">0</span>%</div></article>
+        <article class="card pad stat-card"><p class="stat-label">Average Productivity</p><div class="stat-value"><span data-stat="productivity">0</span>%</div></article>
+        <article class="card pad stat-card"><p class="stat-label">Average Task Completion</p><div class="stat-value"><span data-stat="taskCompletion">0</span>%</div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid grid-3">
+        <article class="card pad stat-card"><p class="stat-label">High Performance</p><div class="stat-value" data-stat="high">0</div></article>
+        <article class="card pad stat-card"><p class="stat-label">Medium Performance</p><div class="stat-value" data-stat="medium">0</div></article>
+        <article class="card pad stat-card"><p class="stat-label">Low Performance</p><div class="stat-value" data-stat="low">0</div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid grid-2">
+        <article class="card pad chart-card">
+          <p class="stat-label">Performance Distribution</p>
+          <canvas id="performanceDistribution" aria-label="Performance distribution chart"></canvas>
+          <div id="distributionFallback"></div>
+        </article>
+        <article class="card pad chart-card">
+          <p class="stat-label">Average Performance</p>
+          <canvas id="averagePerformance" aria-label="Average performance chart"></canvas>
+          <div id="averageFallback"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="card pad chart-card">
+        <p class="stat-label">Attendance, Productivity, Task Completion</p>
+        <canvas id="metricDistribution" aria-label="Metric distribution chart"></canvas>
+        <div id="metricFallback"></div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Anonymous Participant Table</p>
+          <h2>Public Dataset View</h2>
+        </div>
+        <p>Raw Participant IDs, names, and emails are never displayed in this table.</p>
+      </div>
+      <div class="card table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Participant</th>
+              <th>Attendance</th>
+              <th>Productivity</th>
+              <th>Task Completion</th>
+              <th>Performance Score</th>
+              <th>Prediction</th>
+            </tr>
+          </thead>
+          <tbody data-participant-table></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner">Dashboard data is sample-based for the first prototype version.</div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ml-model.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
